@@ -10,7 +10,9 @@ DOTENV_FILE_PATH = os.path.join(os.getcwd(), ".env")
 load_dotenv(DOTENV_FILE_PATH)
 
 
-PDF_FILE_PATH = os.path.join(os.getcwd(), "reduce-map", "homework_1.pdf")
+PDF_FILE_PATH = os.path.join(
+    os.getcwd(), "reduce-map", "Brand Name_ Golden Harvest Bananas.pdf"
+)
 
 pdf_laoder = PyPDFLoader(PDF_FILE_PATH)
 
@@ -20,6 +22,6 @@ llm = OpenAI()
 
 chain = load_summarize_chain(llm, chain_type="map_reduce")
 
-output = chain.invoke(docs)
+output = chain.run(docs)
 
 print(output)
